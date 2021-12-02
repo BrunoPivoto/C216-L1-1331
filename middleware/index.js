@@ -8,7 +8,7 @@ const cors = corsMiddleware({
 });
 
 const server = restify.createServer({
-	name: 'Prática 6'
+	name: 'Middleware'
 });
 
 server.use(restify.plugins.bodyParser());

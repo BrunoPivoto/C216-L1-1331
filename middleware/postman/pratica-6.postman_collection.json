@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nome\": \"Fulano da Silva\",\n    \"curso\": \"Engenharia de Software\",\n    \"nascimento\": \"01/01/1970\"\n}",
+					"raw": "{\n    \"id\": 1,\n    \"origem\": \"Santa Rita do Sapucaí\",\n    \"destino\": \"Pouso Alegre\",\n    \"peso\": \"20\",\n    \"data\": \"02/12/2021\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -20,14 +20,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/aluno/inserir",
+					"raw": "http://localhost:5000/encomenda/inserir",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
-						"aluno",
+						"encomenda",
 						"inserir"
 					]
 				}
@@ -52,14 +52,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/aluno/listar",
+					"raw": "http://localhost:5000/encomenda/listar",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
-						"aluno",
+						"encomenda",
 						"listar"
 					]
 				}
@@ -73,7 +73,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": 1,\n    \"nome\": \"Fulano da Silva Sauro\",\n    \"curso\": \"Engenharia de Software\",\n    \"nascimento\": \"01/01/1970\"\n}",
+					"raw": "{\n    \"id\": 1,\n    \"origem\": \"Santa Rita do Sapucaí\",\n    \"destino\": \"Pouso Alegre\",\n    \"peso\": \"20\",\n    \"data\": \"02/12/2021\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -81,14 +81,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/aluno/atualizar",
+					"raw": "http://localhost:5000/encomenda/atualizar",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
-						"aluno",
+						"encomenda",
 						"atualizar"
 					]
 				}
@@ -110,14 +110,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/aluno/excluir",
+					"raw": "http://localhost:5000/encomenda/excluir",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
-						"aluno",
+						"encomenda",
 						"excluir"
 					]
 				}
