@@ -21,8 +21,8 @@ const mysql = require('mysql');
 const connectionUri = {
     host: 'localhost',
     user: 'root',
-    password: 'password',
-    database: 'C216-L1'
+    password : 'password',
+    database: 'c216-l1'
 };
 
 function inserir(req, res, next) {
@@ -38,8 +38,8 @@ function inserir(req, res, next) {
 	};
 
 	let connection = mysql.createConnection(connectionUri);
-	let strQuery = `INSERT INTO encomenda (origem, destino, peso) VALUES` +
-	        	   `('${encomenda.origem}', '${encomenda.destino}', '${encomenda.peso}');`
+	let strQuery = `INSERT INTO encomenda (origem, destino, peso, data) VALUES` +
+	        	   `('${encomenda.origem}', '${encomenda.destino}', '${encomenda.peso}', '${encomenda.data}');`
 	console.log(strQuery);
 	connection.query(strQuery, function(err, rows, fields) {
 		if (!err) {
@@ -85,7 +85,7 @@ function atualizar(req, res, next) {
 	let strQuery = `UPDATE encomenda SET ` + 
 	                `origem = '${encomenda.origem}', ` +
 					`destino = '${encomenda.destino}', ` +
-					`peso = '${encomenda.peso}' ` +
+					`peso = '${encomenda.peso}', ` +
 					`data = '${encomenda.data}' ` +
 					`WHERE id = '${encomenda.id}';`
 	
@@ -120,15 +120,35 @@ function excluir(req, res, next) {
 	connection.end();
 };
 
+function buscaOrigem(req, res, next) {
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('content-type','application/json');
+	res.charSet('UTF-8');
+
+	let connection = mysql.createConnection(connectionUri);
+	let strQuery = `SELECT * from encomenda WHERE origem = '${req.query.origem}';`
+	
+	console.log(strQuery);
+	connection.query(strQuery, function(err, rows, fields) {
+		if (!err) {
+			res.json(rows);
+		} else {
+			res.json(err);
+		}
+	});
+	connection.end();
+};
+
 const prefix = '/encomenda';
 
 server.post(prefix + '/inserir', inserir);
 server.get(prefix + '/listar', listar);
 server.put(prefix + '/atualizar', atualizar);
 server.del(prefix + '/excluir', excluir);
+server.get(prefix + '/buscaOrigem', buscaOrigem);
 
 const port = process.env.PORT || 5000;
 
 server.listen(port, function() {
-	console.log('%s rodando', server.name);
+	console.log('%s rodando na porta %s', server.name, port);
 });

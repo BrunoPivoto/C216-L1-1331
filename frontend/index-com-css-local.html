@@ -7,29 +7,35 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 
-<body background="img/unicorn.png">
-    <h1 id="txt_hello">Hello Aluno!</h1>
+<body background="img/background.jpg">
+    <h1 id="txt_hello">Correio</h1>
 
     <h3>INSERIR</h3>
-    <label>Nome: <input type="text" id="input_inserir_nome"></label><br>
-    <label>Curso: <input type="text" id="input_inserir_curso"></label><br>
-    <label>Nascimento: <input type="text" id="input_inserir_nascimento"></label><br>
-    <button class="btn btn-success" id="btn_inserir">POST</button>
+    <label>Origem: <input type="text" class="input" id="input_inserir_origem"></label><br>
+    <label>Destino: <input type="text" id="input_inserir_destino"></label><br>
+    <label>Peso: <input type="text" id="input_inserir_peso"></label><br>
+    <label>Data: <input type="text" id="input_inserir_data"></label><br>
+    <button class="btn btn-success" id="btn_inserir">INSERIR</button>
 
     <h3>LISTAR</h3>
-    <button class="btn btn-primary" id="btn_listar">GET</button>
-    <div id="div_listar"></div>
+    <button class="btn btn-primary" id="btn_listar">LISTAR</button>
+    <div id="div_listar" ></div>
 
     <h3>ATUALIZAR</h3>
     <label>Id: <input type="text" id="input_atualizar_id"></label><br>
-    <label>Nome: <input type="text" id="input_atualizar_nome"></label><br>
-    <label>Curso: <input type="text" id="input_atualizar_curso"></label><br>
-    <label>Nascimento: <input type="text" id="input_atualizar_nascimento"></label><br>
-    <button class="btn btn-warning" id="btn_atualizar">PUT</button>
+    <label>Origem: <input type="text" id="input_atualizar_origem"></label><br>
+    <label>Destino: <input type="text" id="input_atualizar_destino"></label><br>
+    <label>Peso: <input type="text" id="input_atualizar_peso"></label><br>
+    <label>Data: <input type="text" id="input_atualizar_data"></label><br>
+    <button class="btn btn-warning" id="btn_atualizar">ATUALIZAR</button>
 
     <h3>EXCLUIR</h3>
     <label>Id: <input type="text" id="input_excluir_id"></label><br>
-    <button class="btn btn-danger" id="btn_excluir">DELETE</button>
+    <button class="btn btn-danger" id="btn_excluir">EXCLUIR</button>
+
+    <h3>BUSCA POR ORIGEM</h3>
+    <label>Origem: <input type="text" id="input_busca_origem"></label><br>
+    <button class="btn btn-primary" id="btn_buscar">BUSCAR</button>
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
