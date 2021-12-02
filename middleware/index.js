@@ -30,15 +30,16 @@ function inserir(req, res, next) {
 	res.setHeader('content-type','application/json');
 	res.charSet('UTF-8');
 	
-	let aluno = {
-		nome : req.body.nome,
-		curso : req.body.curso,
-		nascimento : req.body.nascimento
+	let encomenda = {
+		origem : req.body.origem,
+		destino : req.body.destino,
+		peso : req.body.peso,
+		data : req.body.data
 	};
 
 	let connection = mysql.createConnection(connectionUri);
-	let strQuery = `INSERT INTO aluno (nome, curso, nascimento) VALUES` +
-	        	   `('${aluno.nome}', '${aluno.curso}', '${aluno.nascimento}');`
+	let strQuery = `INSERT INTO encomenda (origem, destino, peso) VALUES` +
+	        	   `('${encomenda.origem}', '${encomenda.destino}', '${encomenda.peso}');`
 	console.log(strQuery);
 	connection.query(strQuery, function(err, rows, fields) {
 		if (!err) {
@@ -55,7 +56,7 @@ function listar(req, res, next) {
 	res.setHeader('content-type','application/json');
 	res.charSet('UTF-8');
 	let connection = mysql.createConnection(connectionUri);
-	let strQuery = 'SELECT * FROM aluno;';
+	let strQuery = 'SELECT * FROM encomenda;';
 	console.log(strQuery);
 	connection.query(strQuery, function(err, rows, fields) {
 		if (!err) {
@@ -72,19 +73,21 @@ function atualizar(req, res, next) {
 	res.setHeader('content-type','application/json');
 	res.charSet('UTF-8');
 
-	let aluno = {
+	let encomenda = {
 		id : req.body.id,
-		nome : req.body.nome,
-		curso : req.body.curso,
-		nascimento : req.body.nascimento
+		origem : req.body.origem,
+		destino : req.body.destino,
+		peso : req.body.peso,
+		data : req.body.data
 	};
 
 	let connection = mysql.createConnection(connectionUri);
-	let strQuery = `UPDATE aluno SET ` + 
-	                `nome = '${aluno.nome}', ` +
-					`curso = '${aluno.curso}', ` +
-					`nascimento = '${aluno.nascimento}' ` +
-					`WHERE id = '${aluno.id}';`
+	let strQuery = `UPDATE encomenda SET ` + 
+	                `origem = '${encomenda.origem}', ` +
+					`destino = '${encomenda.destino}', ` +
+					`peso = '${encomenda.peso}' ` +
+					`data = '${encomenda.data}' ` +
+					`WHERE id = '${encomenda.id}';`
 	
 	console.log(strQuery);
 	connection.query(strQuery, function(err, rows, fields) {
@@ -104,7 +107,7 @@ function excluir(req, res, next) {
 	res.charSet('UTF-8');
 
 	let connection = mysql.createConnection(connectionUri);
-	let strQuery = `DELETE FROM aluno WHERE id = '${req.body.id}';`
+	let strQuery = `DELETE FROM encomenda WHERE id = '${req.body.id}';`
 	
 	console.log(strQuery);
 	connection.query(strQuery, function(err, rows, fields) {
@@ -117,7 +120,7 @@ function excluir(req, res, next) {
 	connection.end();
 };
 
-const prefix = '/aluno';
+const prefix = '/encomenda';
 
 server.post(prefix + '/inserir', inserir);
 server.get(prefix + '/listar', listar);
