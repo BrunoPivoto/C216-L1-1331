@@ -81,7 +81,7 @@ $(document).ready(function () {
     $("#btn_buscar").click(function () {
         valorOrigem = $("#input_busca_origem").val();
         $.ajax({
-            url: 'http://localhost:5000/encomenda/buscaOrigem',
+            url: `http://localhost:5000/encomenda/buscaOrigem?origem=${valorOrigem}`,
             type: 'GET',
             crossDomain: true,
             dataType: 'json',
